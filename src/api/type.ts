@@ -1,4 +1,5 @@
 export type Country = {
+  [x: string]: any;
   name: {
     common: string;
     official: string;
@@ -11,3 +12,7 @@ export type Country = {
   population: number;
   cca3: string; // important for border codes
 };
+
+export type Region ={
+  africa:string
+}

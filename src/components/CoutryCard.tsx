@@ -1,51 +1,36 @@
 import { Link } from "react-router-dom";
 import type { Country } from "../api/type";
 
-
-interface Props{
-    allCountries:Country;
+interface Props {
+  allCountries: Country;
 }
 
-
-function CountryCard({allCountries}:Props) {
-   
-
+function CountryCard({ allCountries }: Props) {
   return (
-    <>
-     
+    <div>
       <Link
-      to={`/detail/${allCountries.name.common}`}
-      style={{
-        textDecoration: "none",
-        color: "inherit",
-      }}
-    >
-      <div
+        to={`/detail/${encodeURIComponent(allCountries.name.common)}`}
         style={{
-          width: "220px",
-          border: "1px solid #ddd",
-          borderRadius: "10px",
-          padding: "10px",
-          background: "white",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          textAlign: "center",
-          cursor: "pointer",
+          textDecoration: "none",
+          color: "inherit",
         }}
+        // className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
       >
-        <img
-          src={allCountries.flags.png}
-          alt={allCountries.name.common}
-          style={{ width: "100%", borderRadius: "10px" }}
-        />
-        <h3>{allCountries.name.common}</h3>
-        <p>Population: {allCountries.population}</p>
-        <p>Region: {allCountries.region}</p>
-        <p>Capital: {allCountries.capital}</p>
-
-      </div>
-    </Link>
-      
-    </>
+        <div
+       
+      >
+          <img
+            src={allCountries.flags.png}
+            alt={allCountries.name.common}
+            
+          />
+          <h3>{allCountries.name.common}</h3>
+          <p>Population: {allCountries.population}</p>
+          <p>Region: {allCountries.region}</p>
+          <p>Capital: {allCountries.population}</p>
+        </div>
+      </Link>
+    </div>
   );
 }
 

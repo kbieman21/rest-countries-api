@@ -3,8 +3,11 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CountryDetailPage from './pages/CountryDetailPage'
-import { useEffect } from 'react'
-import CountryCard from './components/CoutryCard'
+
+
+import SearchPage from './pages/SearchPage'
+import NavBar from './components/NavBar'
+import RegionFilter from './components/RegionFilter'
 
 
 
@@ -12,7 +15,7 @@ import CountryCard from './components/CoutryCard'
 function App() {
  
 //This was only for testing
-  useEffect(() =>{
+//  useEffect(() =>{
     // getAllCountries().then(res => console.log('Kibreab Testing', res.data.Country))
     
   //  getCountryDetail('Eritrea').then(res => console.log('Kibreab Testing', res.data))
@@ -20,16 +23,17 @@ function App() {
   //  getBorderCountry('DJI').then(res => console.log('Kibreab Testing', res.data))
 
    //filterByRegion('europe').then(res => console.log('Kibreab Testing', res.data))
-  }, [])
+ // }, [])
   
   return (
     <>
+    {/* <RegionFilter/> */}
    
     <Routes>
       <Route path='/' element={<HomePage />} />
-      <Route path='/detail' element={<CountryDetailPage/>}/>      
-
-      {/* <Route path="/search/:query" element={<SearchPage />} /> */}
+      <Route path='/detail/:name' element={<CountryDetailPage/>}/> 
+      <Route path="/search/:query" element={<SearchPage />} />
+      
     </Routes>
       
     </>
